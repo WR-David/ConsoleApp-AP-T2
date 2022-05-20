@@ -54,7 +54,11 @@ namespace ConsoleApp3
                     case 4: Environment.Exit(0); break;
                     default: break;
                 }
-            } 
+
+
+
+            }
+            
         }
 
         public static void LoginM()
@@ -124,12 +128,85 @@ namespace ConsoleApp3
             Console.SetCursorPosition(45, 38);
             Console.WriteLine("│                                       │");
             Console.SetCursorPosition(45, 39);
-            Console.WriteLine("│        INGRESE OPCION [  ]             │");
+            Console.WriteLine("│        INGRESE OPCION [ ]             │");
             Console.SetCursorPosition(45, 40);
             Console.WriteLine("└───────────────────────────────────────┘");
-            Console.ReadLine();
+            while (true)
+            {
+                Console.SetCursorPosition(70, 19);
+                int option;
+
+                do
+                {
+                    String op = Console.ReadLine();
+                    int.TryParse(op, out option);
+                } while (option < 0 || option > 5);
+
+                switch (option)
+                {
+                    case 1: UserAddM(); break;
+                    case 2: UserM(); break;
+                    case 3: UserM(); break;
+                    case 4: Environment.Exit(0); break;
+                    default: break;
+                }
+
+
+
+            }
         }
 
+        public static void UserAddM()
+        {
+            Console.Clear();
+            Console.SetCursorPosition(45, 30);
+            Console.WriteLine("┌─────────────────────────────────────────────────┐");
+            Console.SetCursorPosition(45, 31);
+            Console.WriteLine("│  AGREGAR USUARIO                                │");
+            Console.SetCursorPosition(45, 32);
+            Console.WriteLine("│                                                 │");
+            Console.SetCursorPosition(45, 33);
+            Console.WriteLine("│  RUT              [                           ] │");
+            Console.SetCursorPosition(45, 34);
+            Console.WriteLine("│  Nombre           [                           ] │");
+            Console.SetCursorPosition(45, 35);
+            Console.WriteLine("│  Apellido Paterno [                           ] │");
+            Console.SetCursorPosition(45, 36);
+            Console.WriteLine("│  Apellido Materno [                           ] │");
+            Console.SetCursorPosition(45, 37);
+            Console.WriteLine("│  Correo           [                           ] │");
+            Console.SetCursorPosition(45, 38);
+            Console.WriteLine("│  Usuario          [                           ] │");
+            Console.SetCursorPosition(45, 39);
+            Console.WriteLine("│  Contraseña       [                           ] │");
+            Console.SetCursorPosition(45, 40);
+            Console.WriteLine("└─────────────────────────────────────────────────┘");
+            Console.SetCursorPosition(66, 13);
+            String rut = Console.ReadLine().Trim();
+            Console.SetCursorPosition(66, 14);
+            String nombre = Console.ReadLine().Trim();
+            Console.SetCursorPosition(66, 15);
+            String ap_paterno = Console.ReadLine().Trim();
+            Console.SetCursorPosition(66, 16);
+            String ap_materno = Console.ReadLine().Trim();
+            Console.SetCursorPosition(66, 17);
+            String mail = Console.ReadLine().Trim();
+            Console.SetCursorPosition(66, 18);
+            String user = Console.ReadLine().Trim();
+            Console.SetCursorPosition(66, 19);
+            ConsoleKeyInfo key;
+            String pswd = "";
+            do
+            {
+                key = Console.ReadKey(true);
+                if (key.Key != ConsoleKey.Backspace)
+                {
+                    pswd += key.KeyChar;
+                    Console.Write("*");
+                }
+            } while (key.Key != ConsoleKey.Enter);
+
+        }
         public static bool LoginU(String u, String p)
         {
             String user = "";
@@ -168,6 +245,33 @@ namespace ConsoleApp3
             }
             String hash = s.ToString();
             return hash;
+        }
+
+        public static bool validaRut(string rut)
+        {
+            bool validacion = false;
+            try
+            {
+                rut = rut.ToUpper();
+                rut = rut.Replace(".", "");
+                rut = rut.Replace("-", "");
+                int rutAux = int.Parse(rut.Substring(0, rut.Length - 1));
+                char dv = char.Parse(rut.Substring(rut.Length - 1, 1));
+
+                int m = 0, s = 1;
+                for (; rutAux != 0; rutAux /= 10)
+                {
+                    s = (s + rutAux % 10 * (9 - m++ % 6)) % 11;
+                }
+                if (dv == (char)(s != 0 ? s + 47 : 75))
+                {
+                    validacion = true;
+                }
+            }
+            catch (Exception)
+            {
+            }
+            return validacion;
         }
     }
 }
