@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ConsoleApp3.DAL;
+using ConsoleApp3.DTO;
+using System;
 using System.IO;
 using System.Security.Cryptography;
 
@@ -7,22 +9,22 @@ namespace ConsoleApp3
 {
     internal class Program
     {
-
-        static string file = "C:/Users/lucyf/Documents/Testing/ConsoleApp3/Users.txt";
+        static UserManager userManager = new UserManager();
+        static string file = @"C:\Users\David2\source\repos\ConsoleApp-AP-T2\ConsoleApp3\TextFile1.txt";
         static void Main(string[] args)
         {
             //Definicion de variables
             String user, pswd;            
 
-            //Llamar al Menu de Login, luego por cada tecla presionada en la posicion (60,13) aplicar un '*'
+            //Llamar al Menu de Login, luego por cada tecla presionada en la posicion (59,14) aplicar un '*'
             do
             {
-                LoginM();
+                DTO.Views.LoginM();
                 ConsoleKeyInfo key;
                 pswd = "";
-                Console.SetCursorPosition(60, 12);
+                Console.SetCursorPosition(59, 13);
                 user = Console.ReadLine().Trim();
-                Console.SetCursorPosition(60, 13);
+                Console.SetCursorPosition(59, 14);
                 do
                 {
                     key = Console.ReadKey(true);
@@ -36,103 +38,7 @@ namespace ConsoleApp3
             
             while (true)
             {
-                MainM();
-                Console.SetCursorPosition(70, 18);
-                int option;
-
-                do
-                {
-                    String op = Console.ReadLine();
-                    int.TryParse(op, out option);
-                } while (option < 0 || option > 5);
-
-                switch (option)
-                {
-                    case 1: UserM(); break;
-                    case 2: UserM(); break;
-                    case 3: UserM(); break;
-                    case 4: Environment.Exit(0); break;
-                    default: break;
-                }
-
-
-
-            }
-            
-        }
-
-        public static void LoginM()
-        {
-            //Lineas de recuadro grafico ┌─┐└┘ │
-            //Ventana para entrar al Sistema
-            //Se determina el tamanno de la ventana
-            Console.SetWindowSize(100, 50);
-            //Se determina donde estara el cursor en la siguiente linea de codigo
-            Console.SetCursorPosition(45, 30);
-            Console.WriteLine("┌───────────────────────────┐");
-            Console.SetCursorPosition(45, 31);
-            Console.WriteLine("│      ACCESO A SISTEMA     │");
-            Console.SetCursorPosition(45, 32);
-            Console.WriteLine("│      User: [           ]  │");
-            Console.SetCursorPosition(45, 33);
-            Console.WriteLine("│  Password: [           ]  │");
-            Console.SetCursorPosition(45, 34);
-            Console.WriteLine("└───────────────────────────┘");
-        }
-
-        public static void MainM()
-        {
-            Console.Clear();
-            Console.SetCursorPosition(45, 30);
-            Console.WriteLine("┌───────────────────────────────────────┐");
-            Console.SetCursorPosition(45, 31);
-            Console.WriteLine("│             MENU PRINCIPAL            │");
-            Console.SetCursorPosition(45, 32);
-            Console.WriteLine("│                                       │");
-            Console.SetCursorPosition(45, 33);
-            Console.WriteLine("│  1.- Mantenedor de Usuarios           │");
-            Console.SetCursorPosition(45, 34);
-            Console.WriteLine("│  2.- Mantenedor de Familia Productos  │");            
-            Console.SetCursorPosition(45, 35);
-            Console.WriteLine("│  3.- Mantenedor de Productos          │");
-            Console.SetCursorPosition(45, 36);
-            Console.WriteLine("│  4.- Salir del Sistema                │");
-            Console.SetCursorPosition(45, 37);
-            Console.WriteLine("│                                       │");
-            Console.SetCursorPosition(45, 38);
-            Console.WriteLine("│        INGRESE OPCION [ ]             │");
-            Console.SetCursorPosition(45, 39);
-            Console.WriteLine("└───────────────────────────────────────┘");
-            
-        }
-        
-        public static void UserM()
-        {
-            Console.Clear();
-            Console.SetCursorPosition(45, 30);
-            Console.WriteLine("┌───────────────────────────────────────┐");
-            Console.SetCursorPosition(45, 31);
-            Console.WriteLine("│             MENU USUARIOS             │");
-            Console.SetCursorPosition(45, 32);
-            Console.WriteLine("│                                       │");
-            Console.SetCursorPosition(45, 33);
-            Console.WriteLine("│  1.- Ingresar Usuarios                │");
-            Console.SetCursorPosition(45, 34);
-            Console.WriteLine("│  2.- Modificar Usuarios               │");
-            Console.SetCursorPosition(45, 35);
-            Console.WriteLine("│  3.- Eliminar Usuarios                │");
-            Console.SetCursorPosition(45, 36);
-            Console.WriteLine("│  4.- Mostrar Usuarios                 │");
-            Console.SetCursorPosition(45, 37);
-            Console.WriteLine("│  5.- Salir                            │");
-            Console.SetCursorPosition(45, 38);
-            Console.WriteLine("│                                       │");
-            Console.SetCursorPosition(45, 39);
-            Console.WriteLine("│        INGRESE OPCION [ ]             │");
-            Console.SetCursorPosition(45, 40);
-            Console.WriteLine("└───────────────────────────────────────┘");
-            while (true)
-            {
+                DTO.Views.MainM();
                 Console.SetCursorPosition(70, 19);
                 int option;
 
@@ -144,9 +50,9 @@ namespace ConsoleApp3
 
                 switch (option)
                 {
-                    case 1: UserAddM(); break;
-                    case 2: UserM(); break;
-                    case 3: UserM(); break;
+                    case 1: DTO.Views.UserM(); break;
+                    case 2: DTO.Views.UserM(); break;
+                    case 3: DTO.Views.UserM(); break;
                     case 4: Environment.Exit(0); break;
                     default: break;
                 }
@@ -154,84 +60,36 @@ namespace ConsoleApp3
 
 
             }
-        }
-
-        public static void UserAddM()
-        {
-            Console.Clear();
-            Console.SetCursorPosition(45, 30);
-            Console.WriteLine("┌─────────────────────────────────────────────────┐");
-            Console.SetCursorPosition(45, 31);
-            Console.WriteLine("│  AGREGAR USUARIO                                │");
-            Console.SetCursorPosition(45, 32);
-            Console.WriteLine("│                                                 │");
-            Console.SetCursorPosition(45, 33);
-            Console.WriteLine("│  RUT              [                           ] │");
-            Console.SetCursorPosition(45, 34);
-            Console.WriteLine("│  Nombre           [                           ] │");
-            Console.SetCursorPosition(45, 35);
-            Console.WriteLine("│  Apellido Paterno [                           ] │");
-            Console.SetCursorPosition(45, 36);
-            Console.WriteLine("│  Apellido Materno [                           ] │");
-            Console.SetCursorPosition(45, 37);
-            Console.WriteLine("│  Correo           [                           ] │");
-            Console.SetCursorPosition(45, 38);
-            Console.WriteLine("│  Usuario          [                           ] │");
-            Console.SetCursorPosition(45, 39);
-            Console.WriteLine("│  Contraseña       [                           ] │");
-            Console.SetCursorPosition(45, 40);
-            Console.WriteLine("└─────────────────────────────────────────────────┘");
-            Console.SetCursorPosition(66, 13);
-            String rut = Console.ReadLine().Trim();
-            Console.SetCursorPosition(66, 14);
-            String nombre = Console.ReadLine().Trim();
-            Console.SetCursorPosition(66, 15);
-            String ap_paterno = Console.ReadLine().Trim();
-            Console.SetCursorPosition(66, 16);
-            String ap_materno = Console.ReadLine().Trim();
-            Console.SetCursorPosition(66, 17);
-            String mail = Console.ReadLine().Trim();
-            Console.SetCursorPosition(66, 18);
-            String user = Console.ReadLine().Trim();
-            Console.SetCursorPosition(66, 19);
-            ConsoleKeyInfo key;
-            String pswd = "";
-            do
-            {
-                key = Console.ReadKey(true);
-                if (key.Key != ConsoleKey.Backspace)
-                {
-                    pswd += key.KeyChar;
-                    Console.Write("*");
-                }
-            } while (key.Key != ConsoleKey.Enter);
-
+            
         }
         public static bool LoginU(String u, String p)
         {
-            String user = "";
-            String pswd = "";
-
-            bool result;
-
-            string[] lines = File.ReadAllLines(file);
-            foreach(String line in lines)
+            bool result = false;
+            if (File.Exists(file))
             {
-                String[] separator = line.Split(';');
-                if (separator.Length == 2)
+                String line;
+                StreamReader read = File.OpenText(file);
+                do
                 {
-                    user = separator[0];
-                    pswd = separator[1];
-                }
-            }
+                    line = read.ReadLine();
+                    if (line != null)
+                    {
+                        String[] separator = line.Split(';');
+                        if (u.Trim().Equals(separator[0].Trim()) && GetMD5Hash(p.Trim()).Equals(separator[1].Trim()))
+                        {
+                            result = true;
+                        }
+                    }
+                } while (line != null);
 
-            p = GetMD5Hash(p.Trim());
-            if ((u == user) && (p == pswd))
-                result = true;
+            }
             else
-                result = false;
+            {
+                Console.WriteLine("No existe el archivo");
+            }
             return result;
         }
+
 
         public static String GetMD5Hash(String input)
         {

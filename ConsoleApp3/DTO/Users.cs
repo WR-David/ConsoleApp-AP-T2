@@ -40,7 +40,7 @@ namespace ConsoleApp3.DTO
 
         public override string ToString()
         {
-            return this.rut + " " + this.nombre + " " + this.ap_paterno + " " + this.Ap_materno;
+            return this.rut + ";" + this.nombre + ";" + this.ap_paterno + ";" + this.ap_materno + ";" + this.mail + ";" + this.usuario + ";" + this.clave + ";" + this.estado;
         }
     }
 

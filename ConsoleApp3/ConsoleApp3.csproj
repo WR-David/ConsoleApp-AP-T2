@@ -45,12 +45,15 @@
   <ItemGroup>
     <Compile Include="DAL\UserManager.cs" />
     <Compile Include="DTO\Users.cs" />
+    <Compile Include="DTO\Views.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="TextFile1.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
