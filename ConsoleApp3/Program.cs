@@ -10,7 +10,7 @@ namespace ConsoleApp3
     internal class Program
     {
         static UserManager userManager = new UserManager();
-        static string file = @"C:\Users\David2\source\repos\ConsoleApp-AP-T2\ConsoleApp3\TextFile1.txt";
+        static string file = @"C:\Users\lucyf\source\repos\ConsoleApp3\users.txt";
         static void Main(string[] args)
         {
             //Definicion de variables
@@ -22,9 +22,9 @@ namespace ConsoleApp3
                 DTO.Views.LoginM();
                 ConsoleKeyInfo key;
                 pswd = "";
-                Console.SetCursorPosition(59, 13);
+                Console.SetCursorPosition(59, 12);
                 user = Console.ReadLine().Trim();
-                Console.SetCursorPosition(59, 14);
+                Console.SetCursorPosition(59, 13);
                 do
                 {
                     key = Console.ReadKey(true);
@@ -75,10 +75,9 @@ namespace ConsoleApp3
                     if (line != null)
                     {
                         String[] separator = line.Split(';');
-                        if (u.Trim().Equals(separator[0].Trim()) && GetMD5Hash(p.Trim()).Equals(separator[1].Trim()))
-                        {
+                        if (u.Trim().Equals(separator[5]) && GetMD5Hash(p.Trim()).Equals(separator[6]))
                             result = true;
-                        }
+                        
                     }
                 } while (line != null);
 
@@ -87,7 +86,9 @@ namespace ConsoleApp3
             {
                 Console.WriteLine("No existe el archivo");
             }
+            
             return result;
+            
         }
 
 

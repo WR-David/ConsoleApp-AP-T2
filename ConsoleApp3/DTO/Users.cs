@@ -15,9 +15,9 @@ namespace ConsoleApp3.DTO
         private string mail;
         private string usuario;
         private string clave;
-        private int estado;
+        private string estado;
 
-        public Users(string rut, string nombre, string ap_paterno, string ap_materno, string mail, string usuario, string clave, int estado)
+        public Users(string rut, string nombre, string ap_paterno, string ap_materno, string mail, string usuario, string clave, string estado)
         {
             this.rut = rut;
             this.nombre = nombre;
@@ -28,6 +28,10 @@ namespace ConsoleApp3.DTO
             this.clave = clave;
             this.estado = estado;
         }
+        public Users()
+        {
+
+        }
 
         public string Rut { get => rut; set => rut = value; }
         public string Nombre { get => nombre; set => nombre = value;}
@@ -36,7 +40,7 @@ namespace ConsoleApp3.DTO
         public string Mail { get => mail; set => mail = value; }
         public string Usuario { get => usuario; set => usuario = value; }
         public string Clave { get => clave; set => clave = value; }
-        public int Estado { get => estado; set => estado = value; }
+        public string Estado { get => estado; set => estado = value; }
 
         public override string ToString()
         {
