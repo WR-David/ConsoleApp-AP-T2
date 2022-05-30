@@ -240,6 +240,7 @@ namespace ConsoleApp3.DTO
                 if (listado != null)
                 {
                     String[] separar = listado.ToString().Split(';');
+                   
                     Console.SetCursorPosition(x, y + fila);
                     Console.WriteLine(" {0}.- {1}, {2}, {3}, {4}, {5} ", fila, separar[0], separar[1], separar[2], separar[3], separar[4]);
                     fila++;
