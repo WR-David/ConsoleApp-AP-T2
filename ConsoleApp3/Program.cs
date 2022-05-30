@@ -9,7 +9,6 @@ namespace ConsoleApp3
 {
     internal class Program
     {
-        static UserManager userManager = new UserManager();
         static string file = @"C:\Users\lucyf\source\repos\ConsoleApp3\users.txt";
         static void Main(string[] args)
         {
@@ -56,11 +55,9 @@ namespace ConsoleApp3
                     case 4: Environment.Exit(0); break;
                     default: break;
                 }
-
-
-
             }
             
+
         }
         public static bool LoginU(String u, String p)
         {
@@ -80,6 +77,7 @@ namespace ConsoleApp3
                         
                     }
                 } while (line != null);
+                read.Close();
 
             }
             else

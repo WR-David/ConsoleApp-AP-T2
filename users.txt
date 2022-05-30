@@ -1,2 +1,11 @@
 20.914.861-7;David;Rivera;Fuentes;david.riveraf21@gmail.com;user;24c9e15e52afc47c225b757e7bee1f9d;1
-9.328.615-4;Sandra;Rivera;Berndt;saribe.j@hotmail.es;saribe;a;1
+9.328.615-4;Sandra;Rivera;Berndt;saribe.j@hotmail.es;saribe;24c9e15e52afc47c225b757e7bee1f9d;1
+117.293.643-1;Fuentes;Rivera;asd@gmail.com;asd;asd;24c9e15e52afc47c225b757e7bee1f9d;1
+123;a;a;a;a;a;1acf82be6284b470636b4c3aee954254;1
+1;s;s;s;s;s;cf351d37022055eccb6ecc49bc5cb963;1
+yo;akemi;rivera;uwu;uwu@owo.ewe;uwu;f6c60673cd34d7962415004623654987;1
+1;q;q;q;q;q;e98b1c8817b826c089708e244b0c0679;1
+1;q;q;q;q;q;e98b1c8817b826c089708e244b0c0679;1
+1;q;q;q;q;q;7694f4a66316e53c8cdd9d9954bd611d;1
+1;a;a;a;a;a;0cc175b9c0f1b6a831c399e269772661;1
+11;a;a;s;d;f;8fa14cdd754f91cc6554c9e71929cce7;1
