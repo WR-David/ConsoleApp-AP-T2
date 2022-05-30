@@ -10,84 +10,81 @@ namespace ConsoleApp3.DTO
 {
     class Views
     {
-        static string file = @"C:\Users\lucyf\source\repos\ConsoleApp3\users.txt";
-        static List<Users> users = new List<Users>();
-        static List<string> lines = File.ReadAllLines(file).ToList();
-        
+        static string file = @"C:\Users\edgar\OneDrive\Documentos\Progra Avanzada\Repos\Raito\users.txt";
+        static int x = 43, y = 8;
 
         public static void LoginM()
         {
             //Lineas de recuadro grafico ┌─┐└┘ │
             //Ventana para entrar al Sistema
             //Se determina el tamanno de la ventana
-            Console.SetWindowSize(100, 50);
             //Se determina donde estara el cursor en la siguiente linea de codigo
-            Console.SetCursorPosition(45, 30);
+            Console.SetCursorPosition(x, y);
             Console.WriteLine("┌───────────────────────────┐");
-            Console.SetCursorPosition(45, 31);
+            Console.SetCursorPosition(x, y+1);
             Console.WriteLine("│      ACCESO A SISTEMA     │");
-            Console.SetCursorPosition(45, 32);
+            Console.SetCursorPosition(x, y+2);
             Console.WriteLine("│      User: [           ]  │");
-            Console.SetCursorPosition(45, 33);
+            Console.SetCursorPosition(x, y+3);
             Console.WriteLine("│  Password: [           ]  │");
-            Console.SetCursorPosition(45, 34);
+            Console.SetCursorPosition(x, y+4);
             Console.WriteLine("└───────────────────────────┘");
-
 
         }
         public static void MainM()
         {
             Console.Clear();
-            Console.SetCursorPosition(45, 30);
+            Console.SetCursorPosition(x, y);
             Console.WriteLine("┌───────────────────────────────────────┐");
-            Console.SetCursorPosition(45, 31);
+            Console.SetCursorPosition(x, y+1);
             Console.WriteLine("│             MENU PRINCIPAL            │");
-            Console.SetCursorPosition(45, 32);
+            Console.SetCursorPosition(x, y+2);
             Console.WriteLine("│                                       │");
-            Console.SetCursorPosition(45, 33);
+            Console.SetCursorPosition(x, y+3);
             Console.WriteLine("│  1.- Mantenedor de Usuarios           │");
-            Console.SetCursorPosition(45, 34);
+            Console.SetCursorPosition(x, y+4);
             Console.WriteLine("│  2.- Mantenedor de Familia Productos  │");
-            Console.SetCursorPosition(45, 35);
+            Console.SetCursorPosition(x, y+5);
             Console.WriteLine("│  3.- Mantenedor de Productos          │");
-            Console.SetCursorPosition(45, 36);
+            Console.SetCursorPosition(x, y+6);
             Console.WriteLine("│  4.- Salir del Sistema                │");
-            Console.SetCursorPosition(45, 37);
+            Console.SetCursorPosition(x, y+7);
             Console.WriteLine("│                                       │");
-            Console.SetCursorPosition(45, 38);
+            Console.SetCursorPosition(x, y+8);
             Console.WriteLine("│        INGRESE OPCION [ ]             │");
-            Console.SetCursorPosition(45, 39);
+            Console.SetCursorPosition(x, y+9);
             Console.WriteLine("└───────────────────────────────────────┘");
 
         }
         public static void UserM()
         {
             Console.Clear();
-            Console.SetCursorPosition(45, 30);
+            Console.SetCursorPosition(x, y);
             Console.WriteLine("┌───────────────────────────────────────┐");
-            Console.SetCursorPosition(45, 31);
+            Console.SetCursorPosition(x, y+1);
             Console.WriteLine("│             MENU USUARIOS             │");
-            Console.SetCursorPosition(45, 32);
+            Console.SetCursorPosition(x, y+2);
             Console.WriteLine("│                                       │");
-            Console.SetCursorPosition(45, 33);
+            Console.SetCursorPosition(x, y+3);
             Console.WriteLine("│  1.- Ingresar Usuarios                │");
-            Console.SetCursorPosition(45, 34);
+            Console.SetCursorPosition(x, y+4);
             Console.WriteLine("│  2.- Modificar Usuarios               │");
-            Console.SetCursorPosition(45, 35);
+            Console.SetCursorPosition(x, y+5);
             Console.WriteLine("│  3.- Eliminar Usuarios                │");
-            Console.SetCursorPosition(45, 36);
+            Console.SetCursorPosition(x, y+6);
             Console.WriteLine("│  4.- Mostrar Usuarios                 │");
-            Console.SetCursorPosition(45, 37);
+            Console.SetCursorPosition(x, y+7);
             Console.WriteLine("│  5.- Salir                            │");
-            Console.SetCursorPosition(45, 38);
+            Console.SetCursorPosition(x, y+8);
             Console.WriteLine("│                                       │");
-            Console.SetCursorPosition(45, 39);
+            Console.SetCursorPosition(x, y+9);
             Console.WriteLine("│        INGRESE OPCION [ ]             │");
-            Console.SetCursorPosition(45, 40);
+            Console.SetCursorPosition(x, y+10);
             Console.WriteLine("└───────────────────────────────────────┘");
+
             while (true)
             {
-                Console.SetCursorPosition(70, 20);
+                Console.SetCursorPosition(x+25, y+9);
                 int option;
 
                 do
@@ -101,12 +98,13 @@ namespace ConsoleApp3.DTO
                     case 1: UserAddM(); break;
                     case 2: UserModM(); break;
                     case 3: UserM(); break;
-                    case 4: UserM(); break;
+                    case 4: UserList(); break;
                     case 5: Environment.Exit(0); break;
                     default: break;
                 }
 
             }
+
         }
         public static void UserAddM()
         {
@@ -134,25 +132,22 @@ namespace ConsoleApp3.DTO
                 Console.WriteLine("│  Contraseña       [                          ] │");
                 Console.SetCursorPosition(45, 40);
                 Console.WriteLine("└────────────────────────────────────────────────┘");
-                Console.SetCursorPosition(66, 14);
+                Console.SetCursorPosition(66, 13);
                 String rut = Console.ReadLine().Trim();
-                Console.SetCursorPosition(66, 15);
+                Console.SetCursorPosition(66, 14);
                 String nombre = Console.ReadLine().Trim();
-                Console.SetCursorPosition(66, 16);
+                Console.SetCursorPosition(66, 15);
                 String ap_paterno = Console.ReadLine().Trim();
-                Console.SetCursorPosition(66, 17);
+                Console.SetCursorPosition(66, 16);
                 String ap_materno = Console.ReadLine().Trim();
-                Console.SetCursorPosition(66, 18);
+                Console.SetCursorPosition(66, 17);
                 String mail = Console.ReadLine().Trim();
-                Console.SetCursorPosition(66, 19);
+                Console.SetCursorPosition(66, 18);
                 String usuario = Console.ReadLine().Trim();
-                Console.SetCursorPosition(66, 20);
+                Console.SetCursorPosition(66, 19);
                 ConsoleKeyInfo key;
+
                 String pass = "";
-
-                string state = "1";
-                
-
 
                 do
                 {
@@ -164,45 +159,13 @@ namespace ConsoleApp3.DTO
                     }
                 } while (key.Key != ConsoleKey.Enter);
 
-                
-                foreach (string line in lines)
-                {
-                    string[] separator = line.Split(';');
+                String p = Program.GetMD5Hash(pass);
 
-                    Users newUser = new Users(rut, nombre, ap_paterno, ap_materno, mail, usuario, pass, state);
-                    newUser.Rut = separator[0];
-                    newUser.Nombre = separator[1];
-                    newUser.Ap_paterno = separator[2];
-                    newUser.Ap_materno = separator[3];
-                    newUser.Mail = separator[4];
-                    newUser.Usuario = separator[5];
-                    newUser.Clave = separator[6];
-                    newUser.Estado = separator[7];
-                    users.Add(newUser);
-                    
-                }
+                Users u = new Users(rut, nombre, ap_paterno, ap_materno, mail, usuario, p, 1);
 
-                users.Add(new Users
-                {
-                    Rut = rut,
-                    Nombre = nombre,
-                    Ap_paterno = ap_paterno,
-                    Ap_materno = ap_materno,
-                    Mail = mail,
-                    Usuario = usuario,
-                    Clave = pass,
-                    Estado = state
-                });
+                UserManager.Add(u, file);
 
-                List<string> output = new List<string>();
-
-                foreach (Users user in users)
-                {
-                    output.Add($"{rut} ; {user.Nombre} ; {user.Ap_paterno} ; {user.Ap_materno} ; {user.Mail} ; {user.Usuario} ; {user.Clave} ; {user.Estado}");
-                }
-
-                File.WriteAllLines(file, output);
-
+                UserM();
 
             }
         }
@@ -210,27 +173,23 @@ namespace ConsoleApp3.DTO
         {
             Console.Clear();
             UserList();
-            Console.SetCursorPosition(45, 30);
+            Console.SetCursorPosition(x, y);
             Console.WriteLine("┌────────────────────────────────────────────────┐");
-            Console.SetCursorPosition(45, 31);
+            Console.SetCursorPosition(x, y+1);
             Console.WriteLine("│  MODIFICAR USUARIO                             │");
-            Console.SetCursorPosition(45, 32);
+            Console.SetCursorPosition(x, y+2);
             Console.WriteLine("│                                                │");
-            Console.SetCursorPosition(45, 33);
+            Console.SetCursorPosition(x, y+3);
             Console.WriteLine("│  Usuario a Modificar [ ]                       │");
-            Console.SetCursorPosition(45, 34);
+            Console.SetCursorPosition(x, y+4);
             Console.WriteLine("│  Nombre           [                          ] │");
-            Console.SetCursorPosition(45, 35);
+            Console.SetCursorPosition(x, y+5);
             Console.WriteLine("│  Apellido Paterno [                          ] │");
-            Console.SetCursorPosition(45, 36);
+            Console.SetCursorPosition(x, y+6);
             Console.WriteLine("│  Apellido Materno [                          ] │");
-            Console.SetCursorPosition(45, 37);
+            Console.SetCursorPosition(x, y+7);
             Console.WriteLine("│  Correo           [                          ] │");
-            Console.SetCursorPosition(45, 38);
-            Console.WriteLine("│  Usuario          [                          ] │");
-            Console.SetCursorPosition(45, 39);
-            Console.WriteLine("│  Contraseña       [                          ] │");
-            Console.SetCursorPosition(45, 40);
+            Console.SetCursorPosition(x, y+8);
             Console.WriteLine("└────────────────────────────────────────────────┘");
             Console.SetCursorPosition(66, 14);
             String rut = Console.ReadLine().Trim();
@@ -264,37 +223,32 @@ namespace ConsoleApp3.DTO
         } 
         public static void UserList()
         {
-            Console.SetCursorPosition(20, 30);
+            Console.Clear();
+            Console.SetCursorPosition(x, y-5);
             Console.WriteLine("┌────────────────────────────────────────────────┐");
-            Console.SetCursorPosition(20, 31);
+            Console.SetCursorPosition(x, y-4);
             Console.WriteLine("│  LISTA DE USUARIOS                             │");
-            Console.SetCursorPosition(20, 32);
-            Console.WriteLine("│                                                │");
-            Console.SetCursorPosition(20, 33);
+            Console.SetCursorPosition(x, y-3);
             Console.WriteLine("└────────────────────────────────────────────────┘");
 
-            foreach (string line in lines)
+            String listado;
+            int fila=0;
+            StreamReader listusr = File.OpenText(file);
+            do
             {
-                string[] separator = line.Split(';');
+                listado = listusr.ReadLine();
+                if (listado != null)
+                {
+                    String[] separar = listado.ToString().Split(';');
+                    Console.SetCursorPosition(x, y + fila);
+                    Console.WriteLine(" {0}.- {1}, {2}, {3}, {4}, {5} ", fila, separar[0], separar[1], separar[2], separar[3], separar[4]);
+                    fila++;
 
-                Users newUser = new Users();
-                newUser.Rut = separator[0];
-                newUser.Nombre = separator[1];
-                newUser.Ap_paterno = separator[2];
-                newUser.Ap_materno = separator[3];
-                newUser.Mail = separator[4];
-                newUser.Usuario = separator[5];
-                newUser.Clave = separator[6];
-                newUser.Estado = separator[7];
-                users.Add(newUser);
+                }
 
-            }
-
-            foreach (Users user in users)
-            {
-                Console.WriteLine($"{user.Rut} {user.Nombre} {user.Ap_paterno} {user.Ap_materno} {user.Mail} {user.Estado}");
-            }
-
+            } while (listado != null);
+            Console.ReadKey();
+            UserM();
         }
 
     }

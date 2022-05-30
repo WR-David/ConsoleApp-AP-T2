@@ -9,8 +9,9 @@ namespace ConsoleApp3
 {
     internal class Program
     {
-        static UserManager userManager = new UserManager();
-        static string file = @"C:\Users\lucyf\source\repos\ConsoleApp3\users.txt";
+        
+        static string file = @"C:\Users\edgar\OneDrive\Documentos\Progra Avanzada\Repos\Raito\users.txt";
+        static int x = 43, y = 8;
         static void Main(string[] args)
         {
             //Definicion de variables
@@ -19,12 +20,12 @@ namespace ConsoleApp3
             //Llamar al Menu de Login, luego por cada tecla presionada en la posicion (59,14) aplicar un '*'
             do
             {
-                DTO.Views.LoginM();
+                Views.LoginM();
                 ConsoleKeyInfo key;
                 pswd = "";
-                Console.SetCursorPosition(59, 12);
+                Console.SetCursorPosition(x+15, y+2);
                 user = Console.ReadLine().Trim();
-                Console.SetCursorPosition(59, 13);
+                Console.SetCursorPosition(x+15, y+3);
                 do
                 {
                     key = Console.ReadKey(true);
@@ -35,10 +36,18 @@ namespace ConsoleApp3
                     }
                 } while (key.Key != ConsoleKey.Enter);
             } while (!LoginU(user, pswd));
-            
+
+
+            MenuPrincipal();
+
+
+        }
+
+        public static void MenuPrincipal()
+        {
             while (true)
             {
-                DTO.Views.MainM();
+                Views.MainM();
                 Console.SetCursorPosition(70, 19);
                 int option;
 
@@ -48,19 +57,16 @@ namespace ConsoleApp3
                     int.TryParse(op, out option);
                 } while (option < 0 || option > 5);
 
+
                 switch (option)
                 {
-                    case 1: DTO.Views.UserM(); break;
-                    case 2: DTO.Views.UserM(); break;
-                    case 3: DTO.Views.UserM(); break;
+                    case 1: Views.UserM(); break;
+                    case 2: Views.UserM(); break;
+                    case 3: Views.UserM(); break;
                     case 4: Environment.Exit(0); break;
                     default: break;
                 }
-
-
-
             }
-            
         }
         public static bool LoginU(String u, String p)
         {
@@ -80,7 +86,7 @@ namespace ConsoleApp3
                         
                     }
                 } while (line != null);
-
+                read.Close();
             }
             else
             {
@@ -90,7 +96,6 @@ namespace ConsoleApp3
             return result;
             
         }
-
 
         public static String GetMD5Hash(String input)
         {

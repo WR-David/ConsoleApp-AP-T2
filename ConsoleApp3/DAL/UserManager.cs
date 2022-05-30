@@ -1,9 +1,7 @@
 ﻿using ConsoleApp3.DTO;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace ConsoleApp3.DAL
 {
@@ -11,22 +9,25 @@ namespace ConsoleApp3.DAL
     {
         private static List<Users> users = new List<Users>();
 
-        public void Add(Users us)
+        public static void Add(Users us, String lista)
         {
-            users.Add(us);
+
+            StreamWriter listado = new StreamWriter(lista, true);
+            listado.WriteLine(us.ToString());
+            listado.Close();
         }
 
-        public void Update(int index, Users us)
+        public static void Update(int index, Users us)
         {
             users.Insert(index, us);
         }
 
-        public void Delete(Users us)
+        public static void Delete(Users us)
         {
             users.Remove(us);
         }
 
-        public List<Users> Show()
+        public static List<Users> Show()
         {
             return users;
         }
